@@ -1,70 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+	text-decoration: none;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+li {
+	list-style: none;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.swiper {
+	width: 100%;
+	height: 650px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.swiper-slide {
+	text-align: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.swiper-slide img {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@layer components {
+	.buttons {
+		@apply absolute bottom-[35px] left-[180px] first:mr-[20px] last:ml-[20px];
+	}
+}
+
+.swiper-slide button.primary {
+	background: #6256ec;
+	border-radius: 8px;
+	padding: 12px 24px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	font-weight: 500;
+	left: 180px;
+	bottom: 35px;
+	width: 141px;
+}
+
+.swiper-slide button.second {
+	background: #25282f;
+	border-radius: 8px;
+	padding: 12px 24px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	font-weight: 500;
+	left: 180px;
+	bottom: 35px;
+	width: 141px;
 }
