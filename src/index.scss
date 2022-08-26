@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;700&display=swap');
+
+@layer components {
+	.buttons {
+		@apply absolute bottom-[35px] left-[180px] first:mr-[20px] last:ml-[20px] flex;
+	}
+	.signup__wrapper {
+		@apply absolute backdrop-blur-sm z-[2] w-full h-full;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 13px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgb(78, 38, 158);
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(31, 29, 111);
+}
+
+:root {
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+input {
+	&:focus {
+		outline: none;
+	}
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+header {
+	li {
+		a {
+			img {
+				color: white;
+			}
+		}
+	}
+}
+
+.swiper {
+	width: 100%;
+	height: 650px;
+	.swiper-button-prev {
+		color: white;
+		transition: all 200ms;
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+	.swiper-button-next {
+		color: white;
+		transition: all 200ms;
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+	.swiper-slide {
+		text-align: center;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+		img {
+			position: relative;
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
+.swiper-slide button {
+	color: white;
+	text-align: center;
+	padding: 12px 24px;
+	border-radius: 8px;
+	font-size: 18px;
+	font-weight: 500;
+	&.primary {
+		background: linear-gradient(267.19deg, #6c70e8 -4.37%, #7b53ce 48.1%, #a454ca 106.01%);
+	}
+	&.second {
+		padding: 12px 15px;
+		background: #25282f;
+		margin-left: 20px;
+	}
+}
+
+.recomendations {
+	margin-top: 60px;
+	span {
+		font-size: 24px;
+		font-weight: 700;
+		background: linear-gradient(271.85deg, #7783f2 -73.79%, #ffffff 96.98%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+}
+
+.recomendation-swiper {
+	height: 250px;
+	margin-bottom: 40px;
+	.swiper-slide {
+		height: 250px;
+		img {
+			border-radius: 10px;
+		}
+	}
+}
+
+form {
+	button {
+		&.form-button {
+			background: linear-gradient(90.8deg, #7783f2 10.57%, #6256ec 83.71%);
+		}
+	}
+}
+
+.modal-open {
+	overflow: hidden;
+}

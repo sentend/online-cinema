@@ -15,16 +15,22 @@ const Slider = () => {
 			loop={true}
 			spaceBetween={50}
 			slidesPerView={1}
-			modules={[Navigation]}
+			modules={[Autoplay, Navigation]}
 			onSlideChange={() => console.log('slide change')}
-			onSwiper={(swiper) => console.log(swiper)}
+			className=''
 		>
 			<SwiperSlide>
 				<img
 					src='https://avatars.mds.yandex.net/get-ott/1672343/2a0000016cc7177239d4025185c488b1bf43/orig'
 					alt=''
 				/>
-				<button className='primary'>Смотреть</button>
+				<div className='buttons'>
+					<button className='primary'>Смотреть</button>
+					<button className='second'>Трейлер</button>
+					<button className='second'>
+						<img src={watchLater} alt='' />
+					</button>
+				</div>
 			</SwiperSlide>
 			<SwiperSlide>
 				<img
@@ -40,11 +46,14 @@ const Slider = () => {
 				</div>
 			</SwiperSlide>
 			<SwiperSlide>
-				<img
-					src='https://www.hollywoodreporter.com/wp-content/uploads/2014/09/interstellar_poster_0.jpg'
-					alt=''
-				/>
-				<button className='primary'>Смотреть</button>
+				<img src='https://media.kg-portal.ru/movies/a/avengers4/posters/avengers4_79.jpg' alt='' />
+				<div className='buttons'>
+					<button className='primary'>Смотреть</button>
+					<button className='second'>Трейлер</button>
+					<button className='second'>
+						<img src={watchLater} alt='' />
+					</button>
+				</div>
 			</SwiperSlide>
 		</Swiper>
 	)
