@@ -5,8 +5,6 @@ import Header from '../components/Header'
 import MainPage from '../pages/MainPage'
 import Sidebar from '../components/Sidebar'
 
-import './App.css'
-
 function App() {
 	const { signing } = useSelector((state) => state.signUp)
 
