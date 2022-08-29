@@ -81,10 +81,7 @@ const FormSignUp = () => {
 						{errors?.password && <span className='text-red-500 text-sm'>{errors?.password?.message}</span>}
 					</div>
 				</div>
-				<button
-					type='submit'
-					className='form-button text-white font-bold text-center w-full rounded-[6px] py-[13px] mb-[16px]'
-				>
+				<button type='submit' className='main-button'>
 					Продолжить
 				</button>
 				<div className='text-center mb-[16px]'>
