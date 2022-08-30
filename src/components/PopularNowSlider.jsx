@@ -1,16 +1,18 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper'
+import { Link } from 'react-router-dom'
 
 const PopularNowSlider = (props) => {
 	const { data, isLoading, isError } = props.data
-
+	console.log(props.data.data)
 	const renderItems = () => {
 		let renderItems
+
 		if (data) {
 			renderItems = data.docs.map((item) => {
 				return (
-					<SwiperSlide key={item.id} style={{ width: 300 }}>
-						<a href=''>
+					<SwiperSlide key={item.id} style={{ width: 300 }} onClick={() => console.log(item.id)}>
+						<Link to={`/movies/${item.id}`} className='shadow-md'>
 							<div className='hover:scale-105 duration-200 relative'>
 								<img
 									className='relative w-full object-cover h-[400px]'
@@ -18,7 +20,7 @@ const PopularNowSlider = (props) => {
 									alt=''
 								/>
 							</div>
-						</a>
+						</Link>
 					</SwiperSlide>
 				)
 			})
@@ -30,7 +32,14 @@ const PopularNowSlider = (props) => {
 	const elements = renderItems()
 
 	return (
-		<Swiper slidesPerView={4.4} spaceBetween={0} navigation modules={[Navigation]} className='recomendation-swiper'>
+		<Swiper
+			slidesPerView={6.3}
+			slidesPerGroup={4}
+			spaceBetween={0}
+			navigation
+			modules={[Navigation]}
+			className='recomendation-swiper'
+		>
 			{elements}
 		</Swiper>
 	)

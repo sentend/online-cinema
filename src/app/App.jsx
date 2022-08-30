@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux'
 import { AnimatePresence } from 'framer-motion'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import Header from '../components/Header'
-import MainPage from '../pages/MainPage'
 import Sidebar from '../components/Sidebar'
+import { MainPage, SinglePageMovie } from '../pages/index.js'
 
 function App() {
 	const { signing } = useSelector((state) => state.signUp)
@@ -16,15 +16,19 @@ function App() {
 	}
 
 	return (
-		<BrowserRouter>
-			<div className='App'>
-				<AnimatePresence>{signing ? <Sidebar /> : null}</AnimatePresence>
-				<Header />
-				<main className='w-full bg-[#1E1746]'>
-					<MainPage />
+		<div className='App'>
+			<BrowserRouter>
+				<AnimatePresence>{signing && <Sidebar />}</AnimatePresence>
+				<main className='w-full h-full bg-[#1E1746]'>
+					<Routes>
+						<Route element={<Header />}>
+							<Route path='/' element={<MainPage />} />
+							<Route path='/movies/:id' element={<SinglePageMovie />} />
+						</Route>
+					</Routes>
 				</main>
-			</div>
-		</BrowserRouter>
+			</BrowserRouter>
+		</div>
 	)
 }
 

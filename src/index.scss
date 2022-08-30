@@ -76,25 +76,9 @@ form {
 		-ms-flex-align: center;
 		-webkit-align-items: center;
 		align-items: center;
-		button {
-			color: white;
-			text-align: center;
-			padding: 12px 24px;
-			border-radius: 8px;
-			font-size: 18px;
-			font-weight: 500;
-			&.primary {
-				background: linear-gradient(267.19deg, #6c70e8 -4.37%, #7b53ce 48.1%, #a454ca 106.01%);
-			}
-			&.second {
-				padding: 12px 15px;
-				background: #25282f;
-				margin-left: 20px;
-			}
-		}
-		img {
-			border-radius: 10px;
-		}
+	}
+	img {
+		border-radius: 10px;
 	}
 }
 
@@ -137,12 +121,32 @@ form {
 }
 
 .recomendation-swiper {
-	height: 500px;
+	height: 450px;
 	margin-bottom: 40px;
 	.swiper-slide {
 		a {
 			height: 400px;
 		}
+	}
+	.swiper-button-disabled {
+		opacity: 0;
+	}
+}
+
+button {
+	color: white;
+	text-align: center;
+	padding: 12px 24px;
+	border-radius: 8px;
+	font-size: 18px;
+	font-weight: 500;
+	&.primary {
+		background: linear-gradient(267.19deg, #6c70e8 -4.37%, #7b53ce 48.1%, #a454ca 106.01%);
+	}
+	&.second {
+		padding: 12px 15px;
+		background: #25282f;
+		margin-left: 20px;
 	}
 }
 
