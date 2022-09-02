@@ -10,7 +10,7 @@ export const filmsApi = createApi({
 	endpoints: (build) => ({
 		getPopularFilms: build.query({
 			query: () =>
-				`movie?field=rating.kp&search=7-10&field=year&search=2017-2020&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&limit=15&token=${token}`,
+				`movie?field=rating.kp&search=7-10&field=year&search=2018-2020&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&limit=15&token=${token}`,
 		}),
 		getPopularSeries: build.query({
 			query: () =>
@@ -23,5 +23,3 @@ export const filmsApi = createApi({
 })
 
 export const { useGetPopularFilmsQuery, useGetPopularSeriesQuery, useGetMovieByIdQuery } = filmsApi
-
-//todo разобраться как передать объект header в RTK query и сделать запрос

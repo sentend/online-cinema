@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import { filmsApi } from './query/filmsApi'
+
 import signUp from './reducers/signUpSlice'
 
 const store = configureStore({

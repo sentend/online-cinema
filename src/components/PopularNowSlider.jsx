@@ -3,20 +3,21 @@ import { Navigation } from 'swiper'
 import { Link } from 'react-router-dom'
 
 const PopularNowSlider = (props) => {
-	const { data } = props.data
-	console.log(data)
+	if (!props.data) {
+		return <div>Loading</div>
+	}
 	const renderItems = () => {
 		let renderItems
-
-		if (data) {
-			renderItems = data.docs.map((item) => {
+		console.log(props.data)
+		if (props.data) {
+			renderItems = props.data.map((item) => {
 				return (
 					<SwiperSlide key={item.id} style={{ width: 300 }}>
 						<Link to={`/movies/${item.id}`} className='shadow-md'>
 							<div className='hover:scale-105 duration-200 relative'>
 								<img
 									className='relative w-full object-cover h-[400px]'
-									src={item.poster.previewUrl}
+									src={item.poster?.previewUrl}
 									alt=''
 								/>
 							</div>
@@ -46,5 +47,3 @@ const PopularNowSlider = (props) => {
 }
 
 export default PopularNowSlider
-
-//todo разобраться как сделать меньше отсутп между фильмами
