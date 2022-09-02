@@ -3,15 +3,15 @@ import { Navigation } from 'swiper'
 import { Link } from 'react-router-dom'
 
 const PopularNowSlider = (props) => {
-	const { data, isLoading, isError } = props.data
-	console.log(props.data.data)
+	const { data } = props.data
+	console.log(data)
 	const renderItems = () => {
 		let renderItems
 
 		if (data) {
 			renderItems = data.docs.map((item) => {
 				return (
-					<SwiperSlide key={item.id} style={{ width: 300 }} onClick={() => console.log(item.id)}>
+					<SwiperSlide key={item.id} style={{ width: 300 }}>
 						<Link to={`/movies/${item.id}`} className='shadow-md'>
 							<div className='hover:scale-105 duration-200 relative'>
 								<img

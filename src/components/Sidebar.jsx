@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 import { userStatusChanged } from '../store/reducers/signUpSlice'
 import FormSignUp from './FormSignUp'
@@ -42,9 +42,7 @@ const Sidebar = () => {
 				<button
 					onClick={() => dispatch(userStatusChanged())}
 					className='rounded-[500px] h-[30px] w-[30px] bg-[#090909] flex justify-center items-center border border-[#525252] translate-x-[-43px] mt-[19px]'
-				>
-					<img src={close} alt='' />
-				</button>
+				></button>
 				<div className='flex justify-center items-center flex-col'>
 					<h2 className='text-white text-2xl'>Регистрация</h2>
 					<FormSignUp />
@@ -55,23 +53,3 @@ const Sidebar = () => {
 }
 
 export default Sidebar
-
-//todo добавить framer motion и понять как работает
-
-/*
-<div className='signup w-full h-full overflow-hidden'>
-				<div className='signup__wrapper fixed'>
-					<div className='fixed w-[590px] h-full bg-[#090909] right-0 top-0'>
-						<button
-							onClick={() => dispatch(userStatusChanged())}
-							className='rounded-[500px] h-[30px] w-[30px] bg-[#090909] flex justify-center items-center border border-[#525252] translate-x-[-43px] mt-[19px]'
-						>
-							<img src={close} alt='' />
-						</button>
-						<div className='flex justify-center items-center flex-col'>
-							<h2 className='text-white text-2xl'>Регистрация</h2>
-							<FormSignUp />
-						</div>
-					</div>
-				</div>
-			</div> */
