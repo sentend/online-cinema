@@ -16,7 +16,10 @@ const SinglePageMovie = () => {
 	const movies = useGetMovieByIdQuery(id)
 	const { data: dataMovies, isLoading } = movies
 
+	console.log(dataMovies)
+
 	if (isLoading) {
+		console.log('loading')
 		return <div>loading...</div>
 	}
 
@@ -30,9 +33,19 @@ const SinglePageMovie = () => {
 		return `${country.name} `
 	})
 
-	const director = `${dataMovies.persons[0].name}${
-		dataMovies.persons[1].enProfession === 'director' ? ', ' + dataMovies.persons[1].name : ''
-	}`
+	let directors = []
+	for (let i = 0; i < 5; i++) {
+		const director = dataMovies.persons[i]
+		if (director.enProfession === 'director') {
+			directors.push(director.name)
+		}
+	}
+
+	directors = directors.map((director) => (
+		<Link to={`/persons/directors/${director}`}>
+			<span className='hover:text-white duration-200'>{director}&nbsp;&nbsp;</span>
+		</Link>
+	))
 
 	const hours = Math.floor(dataMovies.movieLength / 60)
 	const min = (dataMovies.movieLength - hours * 60) % 60
@@ -47,7 +60,7 @@ const SinglePageMovie = () => {
 			>
 				<img src={background} style={{ visibility: 'hidden' }} alt='' />
 				<div className='absolute top-[88px] left-[68px] w-[550px]'>
-					<img src={dataMovies.logo.url || noLogo} alt='' className='block h-[130px]' />
+					<img src={dataMovies.logo.url || noLogo} alt='' className='block h-[140px]' />
 					<div className='w-full'>
 						<div className='rating mt-[30px] mb-[8px]'>
 							<span
@@ -66,14 +79,12 @@ const SinglePageMovie = () => {
 							</span>
 						</div>
 						<p className='text-[#8B8B8B] mb-[8px]'>
-							{dataMovies.year} {genres} <br /> {countries} {dataMovies.ageRating || 16}+ {hours}ч {min} м
+							{dataMovies.year} {genres} <br /> {countries} {dataMovies.ageRating || 16}+ {hours}ч {min}м
 						</p>
 						<p className='text-white text-xl mb-[8px]'>{dataMovies.shortDescription}</p>
 						<span className='text-[#8B8B8B]'>
-							Режиссёр:
-							<Link to={`/persons/directors/${director}`}>
-								<span className='hover:text-purple-200 duration-200'> {director}</span>
-							</Link>
+							{directors.length > 1 ? 'Режиссёры: ' : 'Режиссёр: '}
+							{directors}
 						</span>
 					</div>
 				</div>
@@ -98,11 +109,15 @@ const SinglePageMovie = () => {
 					/>
 				</div>
 			</div>
-			<div className='recomendations w-[1647px]'>
-				<span className=' mb-5'>Вам также может понравится</span>
-			</div>
-			<PopularNowSlider data={dataMovies.similarMovies} />
-			{dataMovies.sequelsAndPrequels.length > 0 && (
+			{dataMovies.similarMovies.length > 0 && (
+				<>
+					<div className='recomendations w-[1647px]'>
+						<span className=' mb-5'>Вам также может понравится</span>
+					</div>
+					<PopularNowSlider data={dataMovies.similarMovies} />
+				</>
+			)}
+			{dataMovies.sequelsAndPrequels.length > 0 && Object.keys(dataMovies.sequelsAndPrequels[0]).length > 1 && (
 				<>
 					<div className='recomendations w-[1647px]'>
 						<span className=' mb-5'>Сиквелы и приквелы</span>
@@ -115,5 +130,3 @@ const SinglePageMovie = () => {
 }
 
 export default SinglePageMovie
-
-//todo добавить картинку на фон с сервера

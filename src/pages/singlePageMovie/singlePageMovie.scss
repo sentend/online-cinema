@@ -2,4 +2,7 @@
 	background-size: cover, cover;
 	background-repeat: no-repeat;
 	width: 100%;
+	img {
+		object-fit: contain;
+	}
 }

@@ -13,11 +13,11 @@ const MainPage = () => {
 	const series = useGetPopularSeriesQuery()
 
 	if (movies.isLoading || series.isLoading) {
-		return <div>Loading...</div>
+		return <div className='text-white'>Loading...</div>
 	}
 
 	return (
-		<div className='h-full pt-12 w-full flex flex-col items-center'>
+		<div className='h-full pt-12 w-full flex flex-col items-center justify-center'>
 			<Slider />
 			<div className='recomendations w-[1647px]'>
 				<span className=' mb-5'>Популярные фильмы сегодня</span>

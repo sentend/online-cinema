@@ -16,6 +16,17 @@
 			"withStory": false,
 			"withLazy": false,
 			"withIndex": true
+		},
+		"page": {
+			"customTemplates": {
+				"component": "templates/page/TemplateName.jsx",
+				"style": "templates/page/TemplateName.scss"
+			},
+			"path": "src/pages",
+			"withLazy": false,
+			"withStory": false,
+			"withStyle": true,
+			"withTest": false
 		}
 	}
 }

@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Navigation } from 'swiper'
+import { Link } from 'react-router-dom'
 
 import watchLater from '../assets/watch_later.svg'
 
@@ -47,7 +48,7 @@ const Slider = () => {
 			allowTouchMove={false}
 			slidesPerView={1.3}
 			modules={[Autoplay, Navigation]}
-			className='main-slider'
+			className='main-slider flex items-center justify-center'
 		>
 			<SwiperSlide>
 				<img

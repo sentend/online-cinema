@@ -41,8 +41,10 @@ const Sidebar = () => {
 			>
 				<button
 					onClick={() => dispatch(userStatusChanged())}
-					className='rounded-[500px] h-[30px] w-[30px] bg-[#090909] flex justify-center items-center border border-[#525252] translate-x-[-43px] mt-[19px]'
-				></button>
+					className='rounded-[500px]  bg-[#090909] flex justify-center items-center border border-[#525252] translate-x-[-53px] mt-[19px] p-[8px]'
+				>
+					<img src={close} alt='' />
+				</button>
 				<div className='flex justify-center items-center flex-col'>
 					<h2 className='text-white text-2xl'>Регистрация</h2>
 					<FormSignUp />
